@@ -1,0 +1,67 @@
+<?php
+$page_slug = 'status-update';
+define('PAGE_TITLE', 'Status Update');
+
+// Fetches all submissions from the database
+$db = \App\Core\Database::getInstance()->getConnection();
+$stmt = $db->query("
+    SELECT s.*, u.email 
+    FROM submissions s 
+    LEFT JOIN users u ON s.user_id = u.id 
+    ORDER BY s.submitted_at DESC
+");
+$submissions = $stmt->fetchAll();
+
+render_sidebar($page_slug);
+?>
+
+<main class="main-content">
+    <?php render_page_header($page_slug); ?>
+    
+    <div class="card-form status-tracker">
+        <div class="survey-header">
+            <h3>Submission Status Tracker</h3>
+            <p>Monitor your submissions and their processing status</p>
+        </div>
+
+        <div class="filter-bar">
+            <input type="search" placeholder="Search by title or ID..." class="form-control">
+            <select class="form-control"><option>All Statuses</option></select>
+            <select class="form-control"><option>All Types</option></select>
+        </div>
+
+        <div class="submission-list">
+            <?php foreach ($submissions as $submission): ?>
+                <div class="submission-item">
+                    <div class="item-main">
+                        <h4 class="item-title">
+                            <?= htmlspecialchars($submission['title']) ?>
+                            <span class="item-id">SUB-<?= str_pad($submission['id'], 3, '0', STR_PAD_LEFT) ?></span>
+                        </h4>
+                        <div class="item-meta">
+                            <span><?= htmlspecialchars($submission['category']) ?></span> • 
+                            <span><?= htmlspecialchars($submission['email'] ?? 'N/A') ?></span> • 
+                            <span>Submitted <?= date('M d, Y', strtotime($submission['submitted_at'])) ?></span>
+                        </div>
+
+                        <?php if (!empty($submission['notes'])): ?>
+                            <div class="item-notes">
+                                <strong>Notes:</strong> <?= htmlspecialchars($submission['notes']) ?>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+                    <div class="item-status">
+                        <span class="status-tag <?= strtolower(str_replace(' ', '-', $submission['status'])) ?>">
+                            <?= htmlspecialchars($submission['status']) ?>
+                        </span>
+                        <span class="priority-tag <?= strtolower($submission['priority']) ?>">
+                            <?= htmlspecialchars($submission['priority']) ?>
+                        </span>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</main>

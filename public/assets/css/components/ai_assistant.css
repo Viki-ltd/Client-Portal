@@ -1,0 +1,135 @@
+/* AI Text Assistant Main Container */
+.ai-text-assistant {
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: var(--border-radius, 8px);
+    padding: 16px;
+    background-color: #fdfcfb;
+    margin-top: 8px; /* Spacing below the label */
+}
+.ai-text-assistant .assistant-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    color: #5d5d5d;
+}
+.ai-text-assistant .assistant-icon {
+    font-size: 24px;
+    margin-right: 8px;
+    font-weight: bold;
+}
+.ai-text-assistant .assistant-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Main Text Area */
+.ai-text-assistant .current-text-wrapper textarea.form-control {
+    background-color: #f9f8f7;
+    color: #7a7a7a;
+    border: 1px solid #dcdad7;
+}
+
+/* Quick Action Buttons */
+.ai-text-assistant .quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.ai-text-assistant .action-button {
+    padding: 8px 16px;
+    border: 1px solid #c9c5c1;
+    border-radius: 20px;
+    background-color: #fdfcfb;
+    color: #5d5d5d;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.ai-text-assistant .action-button:hover {
+    background-color: #f4f2f0;
+}
+.ai-text-assistant .action-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Refine Input Group at the bottom */
+.ai-text-assistant .refine-input-group {
+    display: flex;
+    margin-top: 16px;
+    gap: 8px;
+}
+.ai-text-assistant .refine-input-group input.form-control {
+    flex-grow: 1;
+    background-color: #fff;
+}
+.ai-text-assistant .refine-input-group button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    background-color: #a9a29a;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+.ai-text-assistant .refine-input-group button:hover {
+    background-color: #938c84;
+}
+.ai-text-assistant .refine-input-group button:disabled {
+    background-color: #c9c5c1;
+    cursor: not-allowed;
+}
+
+/* --- NEW: Styling for Original Text Display --- */
+
+.toggle-original-wrapper {
+    text-align: right;
+    margin-bottom: 8px;
+}
+
+.toggle-original-link {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+.toggle-original-link:hover {
+    text-decoration: underline;
+}
+
+.original-text-container {
+    background-color: #f7f7f7;
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: var(--border-radius, 8px);
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.original-text-content {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    white-space: pre-wrap; /* Preserves line breaks */
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.btn-revert-text {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn-revert-text:hover {
+    background-color: #f0f0f0;
+}

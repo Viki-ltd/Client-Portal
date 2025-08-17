@@ -1,0 +1,17 @@
+{
+    "name": "your-name/client-portal",
+    "description": "A comprehensive client portal with AI-powered features.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "you@example.com"
+        }
+    ],
+    "require": {}
+}

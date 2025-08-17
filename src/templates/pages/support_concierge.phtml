@@ -1,0 +1,22 @@
+<?php
+define('PAGE_TITLE', 'AI Support Concierge');
+render_sidebar('support-concierge');
+?>
+<main class="main-content">
+    <?php render_page_header('support-concierge'); ?>
+    <div class="chat-container">
+        <div class="chat-header">AI Support Concierge</div>
+        <div id="chat-history" class="chat-history">
+            <div class="chat-message bot">
+                <div class="message-bubble">Hi! I'm your AI Support Concierge. How can I help you today?</div>
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+            <button id="send-button" class="send-button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        
+        <div id="chat-interaction-area" class="chat-interaction-area"></div>
+    </div>
+</main>

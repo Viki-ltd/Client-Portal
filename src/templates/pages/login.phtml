@@ -1,0 +1,18 @@
+<?php define('PAGE_TITLE', 'Login'); ?>
+<div class="login-container">
+    <div class="login-box">
+        <h1>Client Portal Login</h1>
+        <?php
+        if (isset($_GET['error'])) {
+            echo '<p class="error-message">Invalid email or password. Please try again.</p>';
+        }
+        ?>
+        <form action="<?php echo APP_URL; ?>/public/actions/handle_login.php" method="POST">
+            <?php
+            render_form_group('Email Address', 'email', '<input type="email" id="email" name="email" class="form-control" required>');
+            render_form_group('Password', 'password', '<input type="password" id="password" name="password" class="form-control" required>');
+            ?>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </form>
+    </div>
+</div>

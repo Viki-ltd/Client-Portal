@@ -1,0 +1,84 @@
+<?php
+$page_slug = 'service-plan';
+define('PAGE_TITLE', 'Service Plan');
+
+// Fetch all available plans from the database
+$db = \App\Core\Database::getInstance()->getConnection();
+$stmt = $db->query("SELECT * FROM service_plans ORDER BY price ASC");
+$all_plans = $stmt->fetchAll();
+
+render_sidebar($page_slug);
+?>
+
+<main class="main-content">
+    <?php render_page_header($page_slug); ?>
+
+    <div class="card-form sp-section">
+        <h3 class="form-section-header"><i class="fas fa-crown"></i> Current Subscription</h3>
+        <div class="current-plan-grid">
+            <div class="plan-details">
+                <span class="plan-name professional">Professional</span>
+                <span class="plan-price">$2,500 <span class="per-month">/monthly</span></span>
+                <p class="plan-meta"><i class="fas fa-redo"></i> Renews on 8/27/2025</p>
+                <p class="plan-meta"><i class="fas fa-check-circle"></i> Auto-renewal enabled</p>
+            </div>
+            <div class="usage-overview">
+                <h4>Usage Overview</h4>
+                <div class="usage-bar">
+                    <label>Projects</label>
+                    <progress value="47" max="100"></progress>
+                    <span>47/100</span>
+                </div>
+                <div class="usage-bar">
+                    <label>Storage</label>
+                    <progress value="2.3" max="10"></progress>
+                    <span>2.3GB/10GB</span>
+                </div>
+                <div class="usage-bar">
+                    <label>AI Credits</label>
+                    <progress value="847" max="1000"></progress>
+                    <span>847/1000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sp-section">
+        <h3 class="form-section-header">Available Plans</h3>
+        <button id="upgrade-plan-btn" class="btn btn-primary">Upgrade or Change Plan</button>
+        
+        <div id="accordion-panel" class="plan-cards-container accordion-panel">
+            <?php foreach ($all_plans as $plan): ?>
+                <?php $is_current = ($plan['name'] === 'Professional'); // Simple check for current plan ?>
+                <div class="plan-card <?= $is_current ? 'current' : '' ?>">
+                    <?php if ($is_current): ?>
+                        <span class="current-plan-badge">Current Plan</span>
+                    <?php endif; ?>
+                    <h4><?= htmlspecialchars($plan['name']) ?></h4>
+                    <div class="plan-price">$<?= number_format($plan['price']) ?> <span class="per-month">/month</span></div>
+                    <ul class="features-list">
+                        <?php 
+                        $features = explode(';', $plan['features']);
+                        foreach ($features as $feature) {
+                            echo '<li>' . htmlspecialchars($feature) . '</li>';
+                        }
+                        ?>
+                    </ul>
+                    <button class="btn <?= $is_current ? 'btn-primary' : 'btn-secondary' ?>" <?= $is_current ? 'disabled' : '' ?>>
+                        <?= $is_current ? 'Current Plan' : 'Switch Plan →' ?>
+                    </button>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    
+    <div class="card-form sp-section">
+        <h3 class="form-section-header"><i class="fas fa-bell"></i> Notification Preferences</h3>
+        <div class="notification-list">
+            <div class="notification-item"><span>Payment Reminders</span><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+            <div class="notification-item"><span>Renewal Alerts</span><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+            <div class="notification-item"><span>Usage Limit Warnings</span><label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            <div class="notification-item"><span>Feature Updates</span><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+        </div>
+    </div>
+</main>

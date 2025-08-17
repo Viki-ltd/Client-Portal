@@ -1,0 +1,34 @@
+.catchup-container { padding: 0; }
+
+.redirect-notice { text-align: center; padding: 2rem; }
+.redirect-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--color-primary); }
+
+.info-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem; 
+    text-align: center; 
+    padding: 2rem; 
+    border-top: 1px solid var(--color-border); 
+    border-bottom: 1px solid var(--color-border); 
+}
+.info-item .info-icon { /* Updated from span to a class */
+    font-size: 2rem; 
+    color: var(--color-primary);
+}
+.info-item h4 { margin: 0.5rem 0; }
+.info-item p { color: var(--color-text-secondary); font-size: 0.9rem; margin: 0; }
+
+.coverage-section { padding: 2rem; }
+.coverage-section ul { list-style: disc; padding-left: 20px; }
+
+.manual-link { 
+    text-align: center; 
+    padding: 1.5rem; 
+    background: var(--color-background-subtle); 
+    border-top: 1px solid var(--color-border); 
+}
+.manual-link a {
+    text-decoration: underline;
+    font-weight: 500;
+}

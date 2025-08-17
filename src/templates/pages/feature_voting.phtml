@@ -1,0 +1,46 @@
+<?php
+define('PAGE_TITLE', 'Feature Voting');
+render_sidebar('feature-voting');
+?>
+<main class="main-content">
+    <?php render_page_header('feature-voting'); ?>
+    
+    <div class="suggestion-form card-form">
+        <h3 class="form-section-header">Share Your Ideas</h3>
+        <?php render_form_group('', 'suggestion_text', '<textarea id="suggestion_text" name="suggestion_text" class="form-control" rows="3" placeholder="Share your feature suggestion or improvement idea..."></textarea>'); ?>
+        <div class="form-actions">
+            <button class="btn btn-primary">Submit Suggestion</button>
+        </div>
+    </div>
+
+    <div class="voting-list">
+        <div class="voting-item">
+            <div class="vote-controls">
+                <button class="vote-arrow up">▲</button>
+                <div class="vote-score">21</div>
+                <button class="vote-arrow down">▼</button>
+            </div>
+            <div class="vote-content">
+                <div class="vote-title">Dark Mode Theme Option <span class="vote-tag ui-ux">UI/UX</span></div>
+                <div class="vote-description">Add a dark mode toggle to improve user experience during night hours.</div>
+                <div class="vote-meta">
+                    <span>Sarah Chen</span> • <span>2 days ago</span> • <span>▲ 24</span> • <span>▼ 3</span>
+                </div>
+            </div>
+        </div>
+        <div class="voting-item">
+            <div class="vote-controls">
+                <button class="vote-arrow up">▲</button>
+                <div class="vote-score">11</div>
+                <button class="vote-arrow down">▼</button>
+            </div>
+            <div class="vote-content">
+                <div class="vote-title">Bulk Export Feature <span class="vote-tag features">Features</span></div>
+                <div class="vote-description">Allow users to export multiple projects at once in various formats (PDF, Excel, etc.).</div>
+                <div class="vote-meta">
+                    <span>Mike Johnson</span> • <span>5 days ago</span> • <span>▲ 18</span> • <span>▼ 7</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

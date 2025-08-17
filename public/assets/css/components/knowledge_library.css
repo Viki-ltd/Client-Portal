@@ -1,0 +1,10 @@
+.knowledge-filters { padding: 1.5rem; border-bottom: 1px solid var(--color-border); }
+.filter-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.filter-tags .tag { background: none; border: 1px solid #ccc; border-radius: 99px; padding: 0.25rem 0.75rem; cursor: pointer; }
+.filter-tags .tag.active { background-color: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 1.5rem; }
+.resource-card { background-color: var(--color-background-subtle); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.5rem; }
+.resource-card .card-type { font-size: 0.8rem; color: var(--color-text-secondary); }
+.resource-card h4 { margin: 0.5rem 0; }
+.resource-card .card-tags .tag { background-color: #e9ecef; color: #495057; border-radius: 4px; padding: 2px 6px; font-size: 0.75rem; margin-right: 0.25rem; }
+.resource-card .btn { width: 100%; margin-top: 1rem; }

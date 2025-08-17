@@ -1,0 +1,28 @@
+﻿# ---- secrets & env ----
+.env
+*.env
+.env.*.local
+
+# ---- python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# ---- php ----
+vendor/
+
+# ---- node/front-end (if any) ----
+node_modules/
+dist/
+.build/
+
+# ---- tooling ----
+.vscode/
+.DS_Store
+*.log
+coverage/
+pytest_cache/

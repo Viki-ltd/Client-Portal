@@ -1,0 +1,62 @@
+<?php
+define('PAGE_TITLE', 'Dashboard');
+
+// This array now includes all modules
+$modules_for_user = [
+    ['icon' => '<i class="fas fa-upload fa-fw"></i>', 'title' => 'Project Data Ingest (Bulk)', 'description' => 'Streamline your content submission process.', 'link' => APP_URL . '/public/project-ingest-bulk'],
+    ['icon' => '<i class="fas fa-file-alt fa-fw"></i>', 'title' => 'Project Data Ingest (Single)', 'description' => 'Easily submit individual project details.', 'link' => APP_URL . '/public/project-ingest-single'],
+    ['icon' => '<i class="fas fa-magic fa-fw"></i>', 'title' => 'AI Narrative Architect', 'description' => 'Craft compelling press releases effortlessly.', 'link' => APP_URL . '/public/ai-narrative-architect'],
+    ['icon' => '<i class="fas fa-pen-fancy fa-fw"></i>', 'title' => 'Join Now', 'description' => 'Create formatted articles with title, description, and images.', 'link' => APP_URL . '/public/join-now'],
+    ['icon' => '<i class="fas fa-book fa-fw"></i>', 'title' => 'Knowledge Library', 'description' => 'Access templates, guides, and best practices.', 'link' => APP_URL . '/public/knowledge-library'],
+    ['icon' => '<i class="fas fa-chart-pie fa-fw"></i>', 'title' => 'Analytics', 'description' => 'Track performance of your submitted projects.', 'link' => APP_URL . '/public/analytics'],
+    ['icon' => '<i class="fas fa-building fa-fw"></i>', 'title' => 'Brand Identity Management', 'description' => 'Maintain a consistent and powerful brand presence.', 'link' => APP_URL . '/public/brand-management'],
+    ['icon' => '<i class="fas fa-question-circle fa-fw"></i>', 'title' => 'AI Support Concierge', 'description' => 'Enhance client support with instant answers.', 'link' => APP_URL . '/public/support-concierge'],
+    ['icon' => '<i class="fas fa-comment-dots fa-fw"></i>', 'title' => 'Feedback Intelligence', 'description' => 'Gain invaluable insights from customer feedback.', 'link' => APP_URL . '/public/feedback'],
+    ['icon' => '<i class="fas fa-credit-card fa-fw"></i>', 'title' => 'Service Plan', 'description' => 'Oversee your current subscription details with ease.', 'link' => APP_URL . '/public/service-plan'],
+    ['icon' => '<i class="fas fa-tasks fa-fw"></i>', 'title' => 'Status Update', 'description' => 'Monitor the real-time processing status.', 'link' => APP_URL . '/public/status-update'],
+    ['icon' => '<i class="fas fa-calendar-alt fa-fw"></i>', 'title' => 'Book Strategic Catchup', 'description' => 'Schedule personalized sessions with our experts.', 'link' => APP_URL . '/public/book-catchup'],
+];
+?>
+
+<main class="main-content">
+    <header class="dashboard-header">
+        <h1>Client Dashboard</h1>
+        <p class="page-description">Access all your project management tools, AI-powered features, and brand management capabilities from one unified dashboard</p>
+    </header>
+
+    <div class="quick-overview">
+        <h3 class="overview-title">Quick Overview</h3>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value">24</div>
+                <div class="stat-label">Projects Submitted</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">12</div>
+                <div class="stat-label">AI Enhancements</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Processing Complete</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Pending Reviews</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-grid">
+        <?php foreach ($modules_for_user as $module): ?>
+            <a href="<?= htmlspecialchars($module['link']) ?>" class="module-card">
+                <div class="card-icon"><?= $module['icon'] ?></div>
+                <div class="card-content">
+                  <h3><?= htmlspecialchars($module['title']) ?></h3>
+                  <p><?= htmlspecialchars($module['description']) ?></p>
+                </div>
+                <div class="card-button">Access Tool</div>
+                <div class="card-arrow">→</div>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</main>

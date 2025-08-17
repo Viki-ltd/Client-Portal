@@ -1,0 +1,142 @@
+.form-group {
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    color: var(--color-text-primary);
+    background-color: #fff;
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(90, 74, 66, 0.25);
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    transition: all .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    color: var(--color-primary);
+    background-color: transparent;
+    border-color: #ced4da;
+}
+
+.btn-secondary:hover {
+    color: var(--color-primary);
+    background-color: #f5f1ee;
+    border-color: #ced4da;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* --- File Uploader Styles --- */
+.file-dropzone-container {
+    width: 100%;
+}
+
+.file-dropzone {
+    display: block;
+    border: 2px dashed #ccc;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.file-dropzone:hover, .file-dropzone.dragover {
+    background-color: var(--color-background-subtle);
+    border-color: var(--color-primary);
+}
+
+.file-dropzone .dropzone-prompt i {
+    font-size: 2rem;
+    color: #aaa;
+}
+
+.file-dropzone .dropzone-prompt p {
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.file-dropzone .dropzone-prompt span {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.file-list-container {
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.file-list-container h6 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+}
+
+.file-list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-list-container li {
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+}

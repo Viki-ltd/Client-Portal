@@ -1,0 +1,50 @@
+<?php
+$page_slug = 'ai-narrative-architect';
+$db = \App\Core\Database::getInstance()->getConnection();
+$stmt_cat = $db->prepare("SELECT option_value FROM dropdown_options WHERE page_slug = ? AND dropdown_name = 'category' ORDER BY option_value ASC");
+$stmt_cat->execute([$page_slug]);
+$categories = $stmt_cat->fetchAll(PDO::FETCH_COLUMN);
+$stmt_pri = $db->prepare("SELECT option_value FROM dropdown_options WHERE page_slug = ? AND dropdown_name = 'priority_level'");
+$stmt_pri->execute([$page_slug]);
+$priorities = $stmt_pri->fetchAll(PDO::FETCH_COLUMN);
+define('PAGE_TITLE', 'AI Narrative Architect');
+render_sidebar($page_slug);
+?>
+<main class="main-content">
+    <?php render_page_header($page_slug); ?>
+    <form action="#" method="post" class="card-form">
+        <div class="form-section">
+            <h3 class="form-section-header">PR Content Creation</h3>
+            <?php 
+            render_form_group('Title*', 'title', '<input type="text" id="title" name="title" class="form-control" placeholder="Enter a descriptive title..." required>');
+            
+            $category_html = '<select id="category" name="category" class="form-control"><option value="">Select a category...</option>';
+            foreach ($categories as $option) { $category_html .= '<option value="' . htmlspecialchars($option) . '">' . htmlspecialchars($option) . '</option>'; }
+            $category_html .= '</select>';
+            render_form_group('Category', 'category', $category_html);
+
+            $priority_html = '<select id="priority" name="priority" class="form-control"><option value="">Select a priority...</option>';
+            foreach ($priorities as $option) { $priority_html .= '<option value="' . htmlspecialchars($option) . '">' . htmlspecialchars($option) . '</option>'; }
+            $priority_html .= '</select>';
+            render_form_group('Priority Level', 'priority', $priority_html);
+
+            render_form_group('Target Deadline', 'deadline', '<input type="date" id="deadline" name="deadline" class="form-control">');
+            
+            render_ai_description_field('description', 'Description*', 'Share your key messages, target audience, and desired tone. Include any specific requirements for SEO optimization...');
+            ?>
+        </div>
+        <div class="form-section">
+            <h3 class="form-section-header">Files & Attachments</h3>
+            <?php
+            // --- THIS LINE IS NOW CORRECTED ---
+            render_file_dropzone('files'); 
+            ?>
+        </div>
+        <div class="form-section">
+             <?php render_form_group('Additional Information', 'additional_info', '<textarea id="additional_info" name="additional_info" class="form-control" rows="3" placeholder="Any additional context, requirements, or special instructions..."></textarea>'); ?>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+        </div>
+    </form>
+</main>

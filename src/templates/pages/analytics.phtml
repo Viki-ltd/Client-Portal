@@ -1,0 +1,31 @@
+<?php
+$page_slug = 'analytics';
+define('PAGE_TITLE', 'Analytics');
+render_sidebar($page_slug);
+?>
+<main class="main-content">
+    <?php render_page_header($page_slug); ?>
+    <div class="card-form">
+        <div class="analytics-header">
+            <h3>Content Analytics</h3>
+            <select class="form-control"><option>Last 30 days</option></select>
+        </div>
+        <div class="analytics-tabs">
+            <button class="tab active"><i class="fas fa-chart-line"></i> Overview</button>
+            <button class="tab"><i class="fas fa-folder"></i> Projects</button>
+            <button class="tab"><i class="fas fa-bullhorn"></i> PR Content</button>
+            <button class="tab"><i class="fas fa-hand-pointer"></i> Engagement</button>
+        </div>
+        <div class="analytics-content">
+            <div class="stat-card-grid">
+                <div class="stat-card"><h4>135</h4><p>Total Projects</p></div>
+                <div class="stat-card"><h4>23,600</h4><p>Total Views</p></div>
+                <div class="stat-card"><h4>88%</h4><p>Avg. Engagement</p></div>
+                <div class="stat-card"><h4>4.2x</h4><p>Avg. Multiplier</p></div>
+            </div>
+            <div class="chart-container">
+                <h4>Monthly Performance</h4>
+                            </div>
+        </div>
+    </div>
+</main>

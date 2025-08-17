@@ -1,0 +1,103 @@
+<?php
+global $path;
+
+// Define which layout class to use based on the current page
+$layout_class = 'layout-sidebar'; // This is the default layout
+$public_pages = ['/login']; 
+
+if (in_array($path, $public_pages)) {
+    $layout_class = 'layout-centered';
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo defined('PAGE_TITLE') ? htmlspecialchars(PAGE_TITLE) : htmlspecialchars(APP_NAME); ?></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/main.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/cards.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/forms.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/layout.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/login.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/chat.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/survey.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/voting.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/service_plan.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/status_update.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/catchup.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/knowledge_library.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/analytics.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/public/assets/css/components/ai_assistant.css">
+</head>
+<body>
+    <div class="app-container <?= $layout_class ?>">
+        <?php
+            // The switch statement for routing
+            switch ($path) {
+                case '':
+                case '/':
+                case '/dashboard':
+                    include __DIR__ . '/../pages/dashboard.phtml';
+                    break;
+                case '/login':
+                    include __DIR__ . '/../pages/login.phtml';
+                    break;
+                case '/project-ingest-bulk':
+                    include __DIR__ . '/../pages/project_ingest_bulk.phtml';
+                    break;
+                case '/project-ingest-single':
+                    include __DIR__ . '/../pages/project_ingest_single.phtml';
+                    break;
+                case '/ai-narrative-architect':
+                    include __DIR__ . '/../pages/ai_narrative_architect.phtml';
+                    break;
+                case '/brand-management':
+                    include __DIR__ . '/../pages/brand_management.phtml';
+                    break;
+                case '/support-concierge':
+                    include __DIR__ . '/../pages/support_concierge.phtml';
+                    break;
+                case '/feedback':
+                    include __DIR__ . '/../pages/feedback.phtml';
+                    break;
+                case '/feature-voting':
+                    include __DIR__ . '/../pages/feature_voting.phtml';
+                    break;
+                case '/join-now':
+                    include __DIR__ . '/../pages/join_now.phtml';
+                    break;
+                case '/knowledge-library':
+                    include __DIR__ . '/../pages/knowledge_library.phtml';
+                    break;
+                case '/analytics':
+                    include __DIR__ . '/../pages/analytics.phtml';
+                    break;
+                case '/service-plan':
+                    include __DIR__ . '/../pages/service_plan.phtml';
+                    break;
+                case '/status-update':
+                    include __DIR__ . '/../pages/status_update.phtml';
+                    break;
+                case '/book-catchup':
+                    include __DIR__ . '/../pages/book_catchup.phtml';
+                    break;
+                case '/settings':
+                    include __DIR__ . '/../pages/settings.phtml';
+                    break;
+                default:
+                    echo '<h1>404 - Page Not Found</h1>';
+                    break;
+            }
+        ?>
+    </div>
+    <script src="<?php echo APP_URL; ?>/public/assets/js/main.js"></script>
+    <script src="<?php echo APP_URL; ?>/public/assets/js/api.js"></script>
+</body>
+</html>

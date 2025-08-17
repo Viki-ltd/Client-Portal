@@ -1,0 +1,31 @@
+<?php
+$page_slug = 'join-now';
+define('PAGE_TITLE', 'Join Now');
+render_sidebar($page_slug);
+?>
+<main class="main-content">
+    <?php render_page_header($page_slug); ?>
+    <form action="#" method="post" class="card-form">
+        <div class="form-section">
+            <h3 class="form-section-header">Article Writer</h3>
+            <?php
+            render_form_group('Article Title*', 'article_title', '<input type="text" id="article_title" name="article_title" class="form-control" placeholder="Enter your article title..." required>');
+            render_form_group('Article Content*', 'article_content', '<textarea id="article_content" name="article_content" class="form-control" rows="10" placeholder="Write your article content here..."></textarea>');
+            ?>
+        </div>
+        <div class="form-section">
+            <h3 class="form-section-header">Article Images</h3>
+            <?php
+            // --- THIS LINE IS NOW CORRECTED ---
+            render_file_dropzone('article_images');
+            ?>
+        </div>
+        <div class="form-actions" style="justify-content: space-between; display: flex;">
+            <div>
+                <button type="button" class="btn btn-secondary">Preview Article</button>
+                <button type="button" class="btn btn-secondary">Download Article</button>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+        </div>
+    </form>
+</main>

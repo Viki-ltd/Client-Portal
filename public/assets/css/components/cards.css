@@ -1,0 +1,105 @@
+/* --- Module Card Styles --- */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem;
+    margin-top: 2rem; /* This line adds the space you need */
+}
+
+/* For smaller screens, we can stack them into columns */
+@media (max-width: 992px) {
+    .module-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.module-card {
+    background-color: var(--color-background-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.module-card .card-content {
+    flex-grow: 1;
+}
+
+.module-card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.module-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    min-height: 57px; /* Helps align cards with different text lengths */
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.card-button {
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: #fff;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.card-arrow {
+    position: absolute; 
+    opacity: 0;
+}
+
+/* --- Quick Overview Styles --- */
+.quick-overview {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: var(--color-background-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.overview-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}

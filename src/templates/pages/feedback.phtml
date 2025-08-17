@@ -1,0 +1,30 @@
+<?php
+define('PAGE_TITLE', 'Feedback Intelligence');
+render_sidebar('feedback');
+?>
+
+<main class="main-content">
+    <?php render_page_header('feedback'); ?>
+    
+    <div class="survey-container">
+        <div class="survey-header">
+            <h3>Feedback Intelligence - NPS Survey</h3>
+            <p>Help us improve by sharing your experience</p>
+        </div>
+        <div class="survey-body">
+            <p class="survey-question">How likely are you to recommend our platform to a friend or colleague?</p>
+            <div class="nps-scale">
+                <span class="scale-label">Not at all likely</span>
+                <div class="score-buttons">
+                    <?php for ($i = 0; $i <= 10; $i++): ?>
+                        <button class="score-button"><?= $i ?></button>
+                    <?php endfor; ?>
+                </div>
+                <span class="scale-label">Extremely likely</span>
+            </div>
+            <div class="survey-actions">
+                <button class="btn btn-primary">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+</main>

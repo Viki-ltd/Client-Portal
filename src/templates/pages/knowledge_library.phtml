@@ -1,0 +1,35 @@
+<?php
+$page_slug = 'knowledge-library';
+define('PAGE_TITLE', 'Knowledge Library');
+render_sidebar($page_slug);
+?>
+<main class="main-content">
+    <?php render_page_header($page_slug); ?>
+    <div class="card-form">
+        <div class="knowledge-filters">
+            <input type="search" class="form-control" placeholder="Search resources...">
+            <div class="filter-tags">
+                <button class="tag active">All</button>
+                <button class="tag">Brand Management</button>
+                <button class="tag">Public Relations</button>
+                <button class="tag">Marketing</button>
+                <button class="tag">Social Media</button>
+                <button class="tag">Analytics</button>
+            </div>
+        </div>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="card-type">template</div>
+                <h4>Brand Guidelines Template</h4>
+                <div class="card-tags"><span class="tag">brand</span><span class="tag">template</span></div>
+                <button class="btn btn-secondary"><i class="fas fa-download"></i> Download</button>
+            </div>
+            <div class="resource-card">
+                <div class="card-type">guide</div>
+                <h4>PR Campaign Strategy Guide</h4>
+                <div class="card-tags"><span class="tag">PR</span><span class="tag">strategy</span></div>
+                <button class="btn btn-secondary"><i class="fas fa-eye"></i> View</button>
+            </div>
+        </div>
+    </div>
+</main>

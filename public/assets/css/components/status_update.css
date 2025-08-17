@@ -1,0 +1,113 @@
+/* Main container for the entire status tracker feature */
+.status-tracker {
+    background-color: var(--color-background-subtle);
+    padding: 0; /* Let internal elements handle padding */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+/* Header section inside the tracker (reusing a class for consistency) */
+.status-tracker .survey-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.status-tracker .survey-header h3 {
+    margin: 0 0 0.25rem 0;
+}
+
+.status-tracker .survey-header p {
+    margin: 0;
+    color: var(--color-text-secondary);
+}
+
+/* Styling for the filter bar */
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+/* Container for the list of submissions */
+.submission-list {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Individual submission card */
+.submission-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--color-background-main); /* White card background */
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.item-main {
+    flex-grow: 1;
+}
+
+.item-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.item-id {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-weight: normal;
+}
+
+.item-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+.item-notes {
+    background-color: var(--color-background-subtle);
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+}
+
+.item-status {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 1.5rem;
+    width: 120px;
+}
+
+/* Pill-shaped tags */
+.status-tag, .priority-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px; /* This creates the pill shape */
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Tag Colors */
+.status-tag.approved { background-color: #d4edda; color: #155724; }
+.status-tag.in-progress { background-color: #cce5ff; color: #004085; }
+.status-tag.pending { background-color: #fff3cd; color: #856404; }
+.status-tag.revision { background-color: #fdffe0; color: #6e7000; }
+.status-tag.rejected { background-color: #f8d7da; color: #721c24; }
+
+.priority-tag.high { border: 1px solid #721c24; color: #721c24; }
+.priority-tag.medium { border: 1px solid #856404; color: #856404; }
+.priority-tag.low { border: 1px solid #495057; color: #495057; }
+
+.item-status .btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}

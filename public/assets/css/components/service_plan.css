@@ -1,0 +1,152 @@
+.sp-section { 
+    margin-bottom: 2rem; 
+}
+.current-plan-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 2fr; 
+    gap: 2rem; 
+    align-items: center;
+}
+.plan-details .plan-name { 
+    font-size: 1.2rem; 
+    font-weight: 500; 
+    display: block; 
+    margin-bottom: 0.5rem; 
+}
+.plan-details .plan-price { 
+    font-size: 2rem; 
+    font-weight: bold; 
+}
+.plan-details .per-month { 
+    font-size: 1rem; 
+    font-weight: normal; 
+    color: #777; 
+}
+.plan-details .plan-meta { 
+    color: #555; 
+    font-size: 0.9rem; 
+}
+.usage-overview h4 { 
+    margin-top: 0; 
+}
+.usage-bar { 
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+    margin-bottom: 0.5rem; 
+}
+.usage-bar label { 
+    width: 80px; 
+    font-size: 0.9rem; 
+}
+.usage-bar progress { 
+    flex-grow: 1; 
+    height: 10px; 
+}
+.usage-bar span { 
+    font-size: 0.9rem; 
+}
+.plan-cards-container { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem;
+    margin-top: 1.5rem; /* This adds space for the badge */
+}
+.plan-card { 
+    border: 1px solid #eeebe8; 
+    border-radius: 8px; 
+    padding: 1.5rem; 
+    text-align: center; 
+    position: relative; 
+    background: #fff;
+}
+.plan-card.current { 
+    border: 2px solid var(--color-primary); 
+}
+.current-plan-badge { 
+    position: absolute; 
+    top: -12px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: var(--color-primary); 
+    color: #fff; 
+    padding: 2px 10px; 
+    font-size: 0.8rem; 
+    border-radius: 12px; 
+}
+.plan-card h4 { 
+    font-size: 1.3rem; 
+    margin-top: 0; 
+}
+.features-list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 1.5rem 0; 
+    text-align: left; 
+    min-height: 120px;
+}
+.features-list li { 
+    margin-bottom: 0.5rem; 
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2328a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>') no-repeat left center; 
+    padding-left: 24px; 
+}
+.notification-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0.75rem 0; 
+    border-bottom: 1px solid #f0ebe8; 
+}
+.notification-item:last-child { 
+    border-bottom: none; 
+}
+.switch { 
+    position: relative; 
+    display: inline-block; 
+    width: 50px; 
+    height: 28px; 
+}
+.switch input { 
+    opacity: 0; 
+    width: 0; 
+    height: 0; 
+}
+.slider { 
+    position: absolute; 
+    cursor: pointer; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-color: #ccc; 
+    border-radius: 28px; 
+    transition: .4s; 
+}
+.slider:before { 
+    position: absolute; 
+    content: ""; 
+    height: 20px; 
+    width: 20px; 
+    left: 4px; 
+    bottom: 4px; 
+    background-color: white; 
+    border-radius: 50%; 
+    transition: .4s; 
+}
+input:checked + .slider { 
+    background-color: var(--color-primary); 
+}
+input:checked + .slider:before { 
+    transform: translateX(22px); 
+}
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+    margin-top: 0;
+}
+
+.accordion-panel.open {
+    max-height: 500px; /* Adjust if your content is taller */
+    margin-top: 1.5rem;
+}
